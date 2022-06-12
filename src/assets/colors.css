@@ -1,13 +1,23 @@
 :root {
+    --font-color: #000000;
+    --font-color-weaker: rgba(0, 0, 0, 70%);
+
     --app-border-color: rgba(0, 0, 0, 10%);
     --app-border-height: 1px;
     --app-border: var(--app-border-height) solid var(--app-border-color); 
 
-    --app-corner-color: rgba(0, 0, 0, 40%);
+    --app-corner-color: var(--font-color);
     --app-corner-height: 3px;
-
-    --font-color: #000000;
-    --font-color-weaker: rgba(0, 0, 0, 70%);
+    --app-corner-padding: calc(
+        (var(--app-corner-height) / -2)
+        -
+        (var(--app-border-height) / 2)
+    );
+    --app-corner-padding-w-border: calc(
+        (var(--app-corner-height) / -2)
+        +
+        (var(--app-border-height) / 2)
+    );
 
     --gap-smaller: 4px;
     --gap-small: 8px;
@@ -25,4 +35,133 @@
 
     --app-background: linear-gradient(90deg, #A09B8E 0%, #B7B1A2 100%);
     --app-padding: var(--gap-small);
+}
+
+/* .corner-wrapper::before {
+    content: '';
+    position: absolute;
+
+    padding: calc(var(--app-corner-height) / 2);
+
+    background:
+        linear-gradient(to right, var(--app-corner-color), var(--app-corner-color)),
+        linear-gradient(to right, var(--app-corner-color), var(--app-corner-color)),
+        linear-gradient(to right, var(--app-corner-color), var(--app-corner-color)),
+        linear-gradient(to right, var(--app-corner-color), var(--app-corner-color));
+
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        no-repeat;
+
+    background-position:
+        top left,
+        top right,
+        bottom right,
+        bottom left;
+
+    background-size:
+        var(--app-corner-height) var(--app-corner-height),
+        var(--app-corner-height) var(--app-corner-height),
+        var(--app-corner-height) var(--app-corner-height),
+        var(--app-corner-height) var(--app-corner-height);
+} */
+
+.corner-1::before {
+    content: '';
+    position: absolute;
+
+    background: var(--app-corner-color);
+    width: var(--app-corner-height);
+    height: var(--app-corner-height);
+
+    top: var(--app-corner-padding);
+    left: var(--app-corner-padding);
+    bottom: unset;
+    right: unset;
+}
+
+.corner-2::after {
+    content: '';
+    position: absolute;
+
+    background: var(--app-corner-color);
+    width: var(--app-corner-height);
+    height: var(--app-corner-height);
+
+    top: var(--app-corner-padding);
+    right: var(--app-corner-padding);
+    left: unset;
+    bottom: unset;
+}
+
+.corner-3::before {
+    content: '';
+    position: absolute;
+
+    background: var(--app-corner-color);
+    width: var(--app-corner-height);
+    height: var(--app-corner-height);
+
+    bottom: var(--app-corner-padding);
+    right: var(--app-corner-padding);
+    top: unset;
+    left: unset;
+}
+
+.corner-4::after {
+    content: '';
+    position: absolute;
+
+    background: var(--app-corner-color);
+    width: var(--app-corner-height);
+    height: var(--app-corner-height);
+
+    bottom: var(--app-corner-padding);
+    left: var(--app-corner-padding);
+    top: unset;
+    right: unset;
+}
+
+.corner-2::after {
+    content: '';
+    position: absolute;
+
+    background: var(--app-corner-color);
+    width: var(--app-corner-height);
+    height: var(--app-corner-height);
+
+    top: var(--app-corner-padding);
+    right: var(--app-corner-padding);
+    left: unset;
+    bottom: unset;
+}
+
+.corner-border-2::after {
+    content: '';
+    position: absolute;
+
+    background: var(--app-corner-color);
+    width: var(--app-corner-height);
+    height: var(--app-corner-height);
+
+    top: var(--app-corner-padding-w-border);
+    right: var(--app-corner-padding-w-border);
+    left: unset;
+    bottom: unset;
+}
+
+.corner-border-3::before {
+    content: '';
+    position: absolute;
+
+    background: var(--app-corner-color);
+    width: var(--app-corner-height);
+    height: var(--app-corner-height);
+
+    bottom: var(--app-corner-padding-w-border);
+    right: var(--app-corner-padding-w-border);
+    top: unset;
+    left: unset;
 }

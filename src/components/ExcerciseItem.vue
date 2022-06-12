@@ -16,36 +16,44 @@ defineProps<{
 </script>
 
 <template>
-<div class="excercise-item-wrapper">
-    <div class="title-row">
-        <div class="icon">
-            <CustomIcon :iconName="iconName" />
-        </div>
-        <h4 class="title">{{ name }}</h4>
-    </div>
-    <div class="stats-row">
-        <div class="vertical">
-            <p>Sets</p>
-            <p>{{ sets }}</p>
-        </div>
+    <div class="excercise-item-wrapper corner-border-2 corner-border-3">
+        <div class="border">
+            <div class="title-row corner-1 corner-4">
+                <div class="icon">
+                    <CustomIcon :iconName="iconName" />
+                </div>
+                <h4 class="title corner-1 corner-4">{{ name }}</h4>
+            </div>
+            <div class="stats-row">
+                <div class="vertical corner-4">
+                    <p>Sets</p>
+                    <p>{{ sets }}</p>
+                </div>
 
-        <div class="vertical">
-            <p>Total</p>
-            <p>{{ total }}</p>
-        </div>
+                <div class="vertical corner-1 corner-4">
+                    <p>Total</p>
+                    <p>{{ total }}</p>
+                </div>
 
-        <div class="vertical">
-            <p>Max</p>
-            <p>{{ max }}</p>
+                <!-- TODO: Fix missing upper-right corner -->
+                <div class="vertical corner-1 corner-4">
+                    <p>Max</p>
+                    <p>{{ max }}</p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 <style>
+
+
 .excercise-item-wrapper {
     display: flex;
     flex-direction: column;
+}
+
+.excercise-item-wrapper .border {
     border: var(--app-border);
 }
 

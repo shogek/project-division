@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CustomIcon from './CustomIcon.vue'
-import CornerWrapper from './CornerWrapper.vue'
 
 defineProps<{
     iconName: string
@@ -11,32 +10,25 @@ defineProps<{
 </script>
 
 <template>
-<div class="badge-item-wrapper">
-    <!-- <CornerWrapper> -->
-        <!-- <div class="content"> -->
-            <div class="icon-column">
-                <CustomIcon :iconName="iconName" />
-            </div>
-            <div class="text-row">
-                <h2 class="title">{{ title }}</h2>
-                <p class="explanation">{{ explanation }}</p>
-            </div>
-            <p class="progress">{{ progress }}%</p>
-        <!-- </div> -->
-    <!-- </CornerWrapper> -->
-</div>
+    <div class="badge-item-wrapper corner-border-2 corner-border-3">
+        <div class="icon-column corner-wrapper corner-1 corner-4">
+            <CustomIcon :iconName="iconName" />
+        </div>
+
+        <div class="text-row corner-1 corner-4">
+            <h2 class="title">{{ title }}</h2>
+            <p class="explanation">{{ explanation }}</p>
+        </div>
+
+        <p class="progress corner-1 corner-4">{{ progress }}%</p>
+    </div>
 </template>
 
 <style>
-
 .badge-item-wrapper {
     display: flex;
     flex-direction: row;
     height: var(--badge-card-height);
-}
-
-.badge-item-wrapper .content {
-    
 }
 
 .badge-item-wrapper .icon-column {
