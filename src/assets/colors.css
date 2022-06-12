@@ -1,0 +1,28 @@
+:root {
+    --app-border-color: rgba(0, 0, 0, 10%);
+    --app-border-height: 1px;
+    --app-border: var(--app-border-height) solid var(--app-border-color); 
+
+    --app-corner-color: rgba(0, 0, 0, 40%);
+    --app-corner-height: 3px;
+
+    --font-color: #000000;
+    --font-color-weaker: rgba(0, 0, 0, 70%);
+
+    --gap-smaller: 4px;
+    --gap-small: 8px;
+    --gap-medium: 16px;
+    --gap-large: 24px;
+    --gap-larger: 32px;
+
+    --badge-icon-height: 50px;
+    --badge-card-height: calc(var(--badge-icon-height) + var(--app-border-height) + (2 * var(--gap-medium)));
+
+    --tracker-icon-height: 65px;
+
+    --excercise-icon-height: 50px;
+    --excercise-card-height: calc(var(--excercise-icon-height) + var(--app-border-height) + (2 * var(--gap-medium)));
+
+    --app-background: linear-gradient(90deg, #A09B8E 0%, #B7B1A2 100%);
+    --app-padding: var(--gap-small);
+}
