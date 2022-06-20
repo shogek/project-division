@@ -11,25 +11,19 @@ import SectionHeader from './SectionHeader.vue'
         <ExcerciseItem
             iconName="pull-up"
             name="Neutral grip pull-ups"
-            :sets="4"
-            :total="75"
-            :max="36"
+            :sets="[3017, 33, 12]"
         />
 
         <ExcerciseItem
             iconName="cardio"
             name="Jumping jacks"
-            :sets="2"
-            :total="450"
-            :max="250"
+            :sets="[37, 33, 12]"
         />
 
         <ExcerciseItem
             iconName="push-up"
             name="High push ups"
-            :sets="3"
-            :total="82"
-            :max="35"
+            :sets="[37, 33, 12]"
         />
     </div>
 </div>

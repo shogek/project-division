@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import CustomIcon from './CustomIcon.vue'
+import DivisionText from './DivisionText.vue'
 
 defineProps<{
     iconName: string
@@ -20,57 +21,60 @@ defineProps<{
             <p class="explanation">{{ explanation }}</p>
         </div>
 
-        <p class="progress corner-1 corner-4">{{ progress }}%</p>
+        <div class="progress corner-1 corner-4">
+            <DivisionText :value="progress" :width="2" postfix="%" />
+        </div>
     </div>
 </template>
 
-<style>
+<style lang="scss">
 .badge-item-wrapper {
     display: flex;
     flex-direction: row;
     height: var(--badge-card-height);
-}
 
-.badge-item-wrapper .icon-column {
-    display: grid;
-    place-items: center;
-    padding: var(--gap-medium);
-    border: var(--app-border);
-}
+    .icon-column {
+        display: grid;
+        place-items: center;
+        padding: var(--gap-medium);
+        border: var(--app-border);
 
-.badge-item-wrapper .icon-column svg {
-    height: var(--badge-icon-height);
-    width: var(--badge-icon-height);
-}
+        svg {
+            height: var(--badge-icon-height);
+            width: var(--badge-icon-height);
+        }
+    }
 
-.badge-item-wrapper .text-row {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: var(--gap-medium);
-    gap: var(--gap-smaller);
-    border: var(--app-border);
-    border-left: none;
-    flex-grow: 1;
-}
+    .text-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: var(--gap-medium);
+        gap: var(--gap-smaller);
+        border: var(--app-border);
+        border-left: none;
+        flex-grow: 1;
 
-.badge-item-wrapper .text-row .title {
-    font-size: 1.2em;
-    font-weight: bold;
-}
+        .title {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
 
-.badge-item-wrapper .text-row .explanation {
-    font-size: 0.8em;
-    color: var(--font-color-weaker);
-}
+        .explanation {
+            font-size: 0.8em;
+            font-weight: 500;
+            color: var(--font-color-weaker);
+        }
+    }
 
-.badge-item-wrapper .progress {
-    display: grid;
-    place-items: center;
-    color: var(--font-color-weaker);
-    border: var(--app-border);
-    border-left: none;
-    font-size: 1.4em;
-    width: var(--badge-card-height);
+    .progress {
+        display: grid;
+        place-items: center;
+        color: var(--font-color-weaker);
+        border: var(--app-border);
+        border-left: none;
+        font-size: 1.2em;
+        width: var(--badge-card-height);
+    }
 }
 </style>

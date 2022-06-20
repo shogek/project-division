@@ -1,6 +1,7 @@
 :root {
     --font-color: #000000;
-    --font-color-weaker: rgba(0, 0, 0, 70%);
+    --font-color-weaker: rgba(0, 0, 0, 50%);
+    --division-color: #FFA223;
 
     --app-border-color: rgba(0, 0, 0, 10%);
     --app-border-height: 1px;
@@ -25,16 +26,27 @@
     --gap-large: 24px;
     --gap-larger: 32px;
 
-    --badge-icon-height: 50px;
+    --button-background-color: rgba(0, 0, 0, 10%);
+
+    --badge-icon-height: 40px;
     --badge-card-height: calc(var(--badge-icon-height) + var(--app-border-height) + (2 * var(--gap-medium)));
 
     --tracker-icon-height: 65px;
 
-    --excercise-icon-height: 50px;
+    --excercise-icon-height: 35px;
+    --excercise-set-height: 2.4rem;
     --excercise-card-height: calc(var(--excercise-icon-height) + var(--app-border-height) + (2 * var(--gap-medium)));
 
     --app-background: linear-gradient(90deg, #A09B8E 0%, #B7B1A2 100%);
     --app-padding: var(--gap-small);
+}
+
+input[type=number] {
+    background: transparent;
+    border: none;
+    border-bottom: dashed var(--division-color) 1px;
+    width: min-content;
+    height: fit-content;
 }
 
 .corner-1::before {
