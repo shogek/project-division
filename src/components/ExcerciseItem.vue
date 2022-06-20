@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
 import CustomIcon from './CustomIcon.vue'
 import DivisionText from './DivisionText.vue'
+import DivisionInput from './DivisionInput.vue'
 
 const props = defineProps<{
     /** TODO: Explain me */
@@ -12,24 +13,28 @@ const props = defineProps<{
     sets: number[]
 }>()
 
-function toggleSetVisibility(): void {
+function toggleSetVisibility() {
     isExpanded$.value = !isExpanded$.value
 }
 
-function removeSet(index: number): void {
+function removeSet(index: number) {
     setList$.value = setList$.value.filter((_, i) => i !== index);
 }
 
-function addSet(): void {
+function onNewSetRepsChanged(newValue: number) {
+    newSetReps$.value = newValue
+}
+
+function addSet() {
     setList$.value = [...setList$.value, newSetReps$.value]
     newSetReps$.value = 0;
 }
 
-function cancelChanges(): void {
+function cancelChanges() {
     setList$.value = props.sets;
 }
 
-function confirmChanges(): void {
+function confirmChanges() {
     // TODO: Implement me
 }
 
@@ -76,7 +81,7 @@ const maxReps = props.sets.reduce((prev, curr) => curr > prev ? curr : prev, 0)
 
                 <div class="reps corner-1 corner-4">
                     <p>Reps performed</p>
-                    <input type="number" step="any" :value="set" :size="set.toString().length + 1">
+                    <DivisionInput :value="set" :width="5" />
                 </div>
 
                 <div class="actions corner-1 corner-4">
@@ -91,7 +96,7 @@ const maxReps = props.sets.reduce((prev, curr) => curr > prev ? curr : prev, 0)
 
                 <div class="reps corner-1 corner-4">
                     <p>Reps performed</p>
-                    <input v-model="newSetReps$" type="number" step="any" :size="5">
+                    <DivisionInput @changed="onNewSetRepsChanged" :value="newSetReps$" :width="5" />
                 </div>
 
                 <div class="actions corner-1 corner-4">
@@ -271,7 +276,7 @@ const maxReps = props.sets.reduce((prev, curr) => curr > prev ? curr : prev, 0)
                         border-top: none;
                         border-bottom: none;
                         border-right: none;
-                        top: 15%;
+                        top: 14%;
                         left: 16%;
                     }
 
